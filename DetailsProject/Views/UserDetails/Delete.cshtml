@@ -1,0 +1,51 @@
+﻿@model UserDetail
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete User Details</h2>
+        </div>
+
+        <div class="mb-3">
+            <fieldset disabled="">
+                <label asp-for="FirstName" class="col-form-label mt-4">First Name</label>
+                <input asp-for="FirstName" type="text" class="form-control"/>
+            </fieldset>
+        </div>        
+        
+        <div class="mb-3">
+            <fieldset disabled="">
+                <label asp-for="LastName" class="col-form-label mt-4">Last Name</label>
+                <input asp-for="LastName" type="text" class="form-control"/>
+            </fieldset>
+        </div>        
+        
+        <div class="mb-3">
+            <fieldset disabled="">
+                <label asp-for="Hometown" class="col-form-label mt-4">Hometown</label>
+                <input asp-for="Hometown" type="text" class="form-control"/>
+            </fieldset>
+        </div>        
+        
+        <div class="mb-3">
+            <fieldset disabled="">
+                <label asp-for="FavoriteColour" class="col-form-label mt-4">Favorite Colour</label>
+                <input asp-for="FavoriteColour" type="text" class="form-control"/>
+            </fieldset>
+        </div>
+
+        <div class="mb-3">
+            <fieldset disabled="">
+                <label asp-for="Birthdate" class="col-form-label mt-4">Birthdate</label>
+                <input asp-for="Birthdate" asp-format="{0:dd/MM/yyyy}" type="text" class="form-control"/>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary btn-lg">Delete</button>
+    <a asp-controller="UserDetails" asp-action="Index" class="btn btn-secondary btn-lg">Back to list</a>
+</form>

@@ -1,0 +1,34 @@
+﻿@model UserDetail
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2>User Details</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="UserDetails" asp-action="Create" class="btn btn-primary">Create User Details</a>
+                <a asp-controller="UserDetails" asp-action="Delete" asp-route-userId="@Model.UserId" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    @if(Model != null)
+    {
+        <ul>
+            <li>First Name: @Model.FirstName</li>
+            <li>Last Name: @Model.LastName</li>
+            <li>Date Of Birth: @Model.Birthdate.ToShortDateString()</li>
+            <li>Hometown: @Model.Hometown</li>
+            <li>Email: @Model.User.Email</li>
+        </ul>
+    }
+    else
+    {
+        <p>You have not added any user details</p>
+    }

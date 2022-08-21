@@ -11,7 +11,10 @@
             </div>
             <div class="col-6 text-end">
                 <a asp-controller="UserDetails" asp-action="Create" class="btn btn-primary">Create User Details</a>
-                <a asp-controller="UserDetails" asp-action="Delete" asp-route-userId="@Model.UserId" class="btn btn-primary">Delete</a>
+                @if(Model != null)
+                {
+                    <a asp-controller="UserDetails" asp-action="Delete" asp-route-userId="@Model.UserId" class="btn btn-primary">Delete</a>
+                }
             </div>
         </div>
     </div>

@@ -22,14 +22,16 @@ namespace DetailsProject.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            var userDetails = _db.UserDetails.Include(u => u.User).FirstOrDefault(u => u.User.Id == claim.Value);
+            var userDetails = _db.UserDetails.Include(u => u.User).FirstOrDefault(u => u.UserId == claim.Value);
 
             return View(userDetails);
+         
         }
 
         //GET
         public IActionResult Create()
         {
+
             return View();
         }
         //POST
@@ -65,9 +67,11 @@ namespace DetailsProject.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePOST(UserDetail obj)
+        public IActionResult DeletePOST(Guid id)
         {
-            _db.UserDetails.Remove(obj);
+            var userDetails = _db.UserDetails.Find(id);
+
+            _db.UserDetails.Remove(userDetails);
             _db.SaveChanges();
 
             return RedirectToAction("Index");

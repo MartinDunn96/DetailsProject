@@ -12,5 +12,7 @@ namespace DetailsProject.Data
         }
 
         public DbSet<UserDetail> UserDetails { get; set; }
+
+
     }
 }

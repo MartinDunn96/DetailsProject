@@ -71,6 +71,11 @@ namespace DetailsProject.Controllers
         {
             var userDetails = _db.UserDetails.Find(id);
 
+            if (userDetails == null)
+            {
+                return NotFound();
+            }
+
             _db.UserDetails.Remove(userDetails);
             _db.SaveChanges();
 
